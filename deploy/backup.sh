@@ -19,7 +19,7 @@ if [[ ! -d compose/config-dir ]]; then
 fi
 
 missing=()
-for cmd in gzip sha512sum xz uuidgen docker docker-compose; do
+for cmd in gzip sha512sum xz uuidgen docker docker-compose pkill; do
     which "$cmd" &>/dev/null || missing+=("$cmd")
 done
 
