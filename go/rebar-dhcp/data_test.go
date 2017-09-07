@@ -56,7 +56,7 @@ func TestAddSubnet(t *testing.T) {
 func TestAddSubnetExisting(t *testing.T) {
 	dt, _ := simpleSetup()
 
-	_, err, code := addNewSubnet(dt, "fred", "192.168.124.0/24")
+	_, err, code := addNewSubnet(dt, "fred", "10.201.70.0/24")
 	assert.Equal(t, len(dt.Subnets), 1, "subnets should be len 1")
 	assert.Equal(t, code, http.StatusConflict, "Return code should be conflict, but is %d", code)
 	assert.NotNil(t, err, "Error should not be nil")
@@ -96,7 +96,7 @@ func TestRemoveSubnet(t *testing.T) {
 func TestReplaceSubnetNotFound(t *testing.T) {
 	dt, _ := simpleSetup()
 
-	ns := newSubnet(dt, "fred", "192.168.124.0/24")
+	ns := newSubnet(dt, "fred", "10.201.70.0/24")
 
 	err, code := dt.ReplaceSubnet("fred2", ns)
 	assert.Equal(t, code, http.StatusNotFound, "Return code should be not found, but is %d", code)
@@ -107,13 +107,13 @@ func TestReplaceSubnetNotFound(t *testing.T) {
 func TestReplaceSubnetReplace(t *testing.T) {
 	dt, _ := simpleSetup()
 
-	ns := newSubnet(dt, "fred", "192.168.124.0/24")
+	ns := newSubnet(dt, "fred", "10.201.70.0/24")
 
 	err, code := dt.ReplaceSubnet("fred", ns)
 	assert.Equal(t, code, http.StatusOK, "Return code should be ok, but is %d", code)
 	assert.Nil(t, err, "Error should be nil")
 	assert.Equal(t, ns, dt.Subnets["fred"], "Replaced new subnet should the new one")
-	assert.Equal(t, dt.Subnets["fred"].Subnet.String(), "192.168.124.0/24", "Subnet should be 192.168.124.0/24, but is %s", dt.Subnets["fred"].Subnet.String())
+	assert.Equal(t, dt.Subnets["fred"].Subnet.String(), "10.201.70.0/24", "Subnet should be 10.201.70.0/24, but is %s", dt.Subnets["fred"].Subnet.String())
 }
 
 func TestReplaceSubnetRename(t *testing.T) {
@@ -156,7 +156,7 @@ func TestReplaceSubnetPreserveInfo(t *testing.T) {
 
 func TestReplaceSubnetMustNotOverlap(t *testing.T) {
 	dt, _ := simpleSetup()
-	os, _, _ := addNewSubnet(dt, "fred2", "192.168.124.0/24")
+	os, _, _ := addNewSubnet(dt, "fred2", "10.201.70.0/24")
 
 	ns := newSubnet(dt, "fred2", "192.168.128.0/24")
 
@@ -203,16 +203,16 @@ func TestFindSubnetWithSubnetMatches(t *testing.T) {
 }
 
 func TestMarshallingMyIPNet(t *testing.T) {
-	_, netdata, _ := net.ParseCIDR("192.168.124.0/24")
+	_, netdata, _ := net.ParseCIDR("10.201.70.0/24")
 	myipnet := &MyIPNet{netdata}
 
 	b, err := myipnet.MarshalText()
-	assert.Equal(t, string(b[:len(b)]), "192.168.124.0/24", "Should be 192.168.124.0/24, but is %s", string(b[:len(b)]))
+	assert.Equal(t, string(b[:len(b)]), "10.201.70.0/24", "Should be 10.201.70.0/24, but is %s", string(b[:len(b)]))
 	assert.Nil(t, err, "Err should be nil")
 
 	myunipnet := &MyIPNet{}
 	err = myunipnet.UnmarshalText(b)
-	assert.Equal(t, myunipnet.String(), "192.168.124.0/24", "Should be 192.168.124.0/24, but is %s", myunipnet.String())
+	assert.Equal(t, myunipnet.String(), "10.201.70.0/24", "Should be 10.201.70.0/24, but is %s", myunipnet.String())
 
 	myunipnet2 := &MyIPNet{}
 	b = make([]byte, 0)

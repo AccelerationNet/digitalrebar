@@ -18,7 +18,7 @@ var myIPsubnet, myIface string
 var rbvFlag bool
 
 func init() {
-	flag.StringVar(&myIPsubnet, "ip", "192.168.124.11/24", "IP to register services as")
+	flag.StringVar(&myIPsubnet, "ip", "10.201.70.11/24", "IP to register services as")
 	flag.StringVar(&myIface, "iface", "eth0", "Network interface to use")
 }
 

@@ -4,7 +4,7 @@
 
 #
 # NOTE: When building on MAC, you must set SWS_LISTEN_ADDR to your docker
-# bridge IP (e.g. 192.168.99.1) and accept the mac firewall port allowance.
+# bridge IP (e.g. 10.201.70.1) and accept the mac firewall port allowance.
 #
 
 

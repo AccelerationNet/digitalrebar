@@ -77,14 +77,14 @@ dr_workloads:
 #   IPs are set to match the_admin.json.forwarder file
 #   The admin network is only added if the provisioner is enabled
 dr_access_mode: FORWARDER
-dr_external_ip: 192.168.124.11/24
-dr_forwarder_ip: 192.168.124.11/24
+dr_external_ip: 10.201.70.11/24
+dr_forwarder_ip: 10.201.70.11/24
 #
 # Default HOST (Mac environment) configuration
 #   IPs are set to match the_admin.json.mac file
 #   The admin network is only added if the provisioner is enabled
 #dr_access_mode: HOST
-#dr_external_ip: 192.168.99.100/24
+#dr_external_ip: 10.201.70.10/24
 
 # Used to add kvm tools to the host for provisining testing
 # Values:
@@ -99,5 +99,5 @@ dr_forwarder_ip: 192.168.124.11/24
 
 # bridge CIDR IP - This IP will be added to docker0 bridge
 # In some cases, it is good to have a bridge IP to use for accessing the admin network.
-# dr_bridge_ip: 192.168.124.200/24
+# dr_bridge_ip: 10.201.70.200/24
 

@@ -19,28 +19,28 @@ Returns: a json array of subnet objects
 ```
 [
   {
-    "name": "192.168.124.0",
-    "subnet": "192.168.124.0/24",
+    "name": "10.201.70.0",
+    "subnet": "10.201.70.0/24",
     "next_server": [[]]
-    "active_start": "192.168.124.22",
-    "active_end": "192.168.124.92",
+    "active_start": "10.201.70.22",
+    "active_end": "10.201.70.92",
     "active_lease_time": 300,
     "reserved_lease_time": 7200,
     "leases": [
       {
-        "ip": "192.168.124.23",
+        "ip": "10.201.70.23",
         "mac": "52:54:77:4e:00:02",
         "valid": true,
         "expire_time": "2015-07-18T03:55:48.210556397Z"
       },
       {
-        "ip": "192.168.124.24",
+        "ip": "10.201.70.24",
         "mac": "52:54:77:4e:00:00",
         "valid": true,
         "expire_time": "2015-07-18T03:55:32.331706048Z"
       },
       {
-        "ip": "192.168.124.25",
+        "ip": "10.201.70.25",
         "mac": "52:54:77:4e:00:01",
         "valid": true,
         "expire_time": "2015-07-18T03:55:40.329631313Z"
@@ -48,7 +48,7 @@ Returns: a json array of subnet objects
     ],
     "bindings": [
       {
-        "ip": "192.168.124.22",
+        "ip": "10.201.70.22",
         "mac": "aa:bb:cc:dd:ee:ff"
       }
     ],
@@ -63,11 +63,11 @@ Returns: a json array of subnet objects
       },
       {
         "id": 28,
-        "value": "192.168.124.255"
+        "value": "10.201.70.255"
       },
       {
         "id": 3,
-        "value": "192.168.124.1"
+        "value": "10.201.70.1"
       },
       {
         "id": 15,
@@ -75,7 +75,7 @@ Returns: a json array of subnet objects
       },
       {
         "id": 6,
-        "value": "192.168.124.10"
+        "value": "10.201.70.10"
       }
     ]
   }
@@ -84,7 +84,7 @@ Returns: a json array of subnet objects
 
 ### Show Subnet
 
-Url: https://user:password@127.0.0.1:6754/subnets/192.168.124.10  
+Url: https://user:password@127.0.0.1:6754/subnets/10.201.70.10  
 Method: Get  
 Returns: a json subnet object like the element in the list with leases  
 Errors: 404 if not found.
@@ -110,11 +110,11 @@ Errors: 400 if request not valid
 Data is in the format:
 ```
 {
-    "name": "192.168.124.0",
-    "subnet": "192.168.124.0/24",
-    "next_server": "192.168.124.10",
-    "active_start": "192.168.124.22",
-    "active_end": "192.168.124.92",
+    "name": "10.201.70.0",
+    "subnet": "10.201.70.0/24",
+    "next_server": "10.201.70.10",
+    "active_start": "10.201.70.22",
+    "active_end": "10.201.70.92",
     "active_lease_time": 300,
     "reserved_lease_time": 7200
 }
@@ -163,7 +163,7 @@ The binding object may also contain options for the device.
 The bind object looks like:
 ```
 {
-  "ip": "192.168.124.22",
+  "ip": "10.201.70.22",
   "mac": "aa:bb:cc:dd:ee:ff",
   "options": [
     {

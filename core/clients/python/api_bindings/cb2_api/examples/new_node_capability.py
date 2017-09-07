@@ -23,7 +23,7 @@ from cb2_api.objects import Deployment, Node, Node_Role
 class main():
     
         #variables
-        admin_ip = '192.168.124.10'
+        admin_ip = '10.201.70.10'
         admin_port = '3000'
         user = 'rebar'
         password = 'rebar1'

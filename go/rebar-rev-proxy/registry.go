@@ -50,16 +50,16 @@ var (
 var ServiceRegistry = &DefaultRegistry{
 	Map: map[string][]string{
 		"dhcp": []string{
-			"192.168.99.100:6755",
+			"10.201.70.10:6755",
 		},
 		"dns": []string{
-			"192.168.99.100:6754",
+			"10.201.70.10:6754",
 		},
 		"provisioner": []string{
-			"192.168.99.100:8092",
+			"10.201.70.10:8092",
 		},
 		"rebarapi": []string{
-			"192.168.99.100:3000",
+			"10.201.70.10:3000",
 		},
 	},
 	Matcher: map[string]*regexp.Regexp{

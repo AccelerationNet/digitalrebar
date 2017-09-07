@@ -13,7 +13,7 @@ curl -X POST --data '{"name":"124.168.192.in-addr.arpa", "kind": "Native", "mast
 curl -H 'X-API-Key: joerules' http://127.0.0.1:8081/servers/localhost/zones/neode.com | jq .
 
 # Update a record
-curl -X PATCH --data '{"rrsets": [ {"name": "test.neode.com", "type": "A", "changetype": "REPLACE", "records": [ {"content": "192.168.124.125", "disabled": false, "name": "test.neode.com", "ttl": 86400, "type": "A", "set-ptr": true } ] } ] }' -H 'X-API-Key: joerules' http://127.0.0.1:8081/servers/localhost/zones/neode.com | jq .  
+curl -X PATCH --data '{"rrsets": [ {"name": "test.neode.com", "type": "A", "changetype": "REPLACE", "records": [ {"content": "10.201.70.125", "disabled": false, "name": "test.neode.com", "ttl": 86400, "type": "A", "set-ptr": true } ] } ] }' -H 'X-API-Key: joerules' http://127.0.0.1:8081/servers/localhost/zones/neode.com | jq .  
 
 
 
@@ -26,6 +26,6 @@ curl -k https://admin:admin@127.0.0.1:6754/zones
 curl -k https://admin:admin@127.0.0.1:6754/zones/neode.com
 
 # Add record to zone
-curl -k -H 'Content-Type: application/json' -X PATCH --data '{ "changetype": "ADD", "content": "192.168.124.15", "name": "join.neode.com", "type": "A" }' https://admin:admin@127.0.0.1:6754/zones/neode.com
+curl -k -H 'Content-Type: application/json' -X PATCH --data '{ "changetype": "ADD", "content": "10.201.70.15", "name": "join.neode.com", "type": "A" }' https://admin:admin@127.0.0.1:6754/zones/neode.com
 
 

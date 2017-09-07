@@ -104,7 +104,7 @@ func main() {
 		"Root of filesystem we should manage")
 	flag.StringVar(&ourAddress,
 		"static-ip",
-		"192.168.124.11",
+		"10.201.70.11",
 		"IP address to advertise for the static HTTP file server")
 	flag.Parse()
 	logger = log.New(os.Stderr, "provisioner-mgmt", log.LstdFlags|log.Lmicroseconds|log.LUTC)

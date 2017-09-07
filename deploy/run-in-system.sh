@@ -18,7 +18,7 @@ if [[ ($(uname -s) = Darwin || $(uname -s) = "MINGW64_NT-10.0") && $DEPLOY_ADMIN
 cat <<EOF
 Switch to NFS instead of vboxsf - one time on the mac.
 sudo vi /etc/exports
-/Users -maproot=root:wheel 192.168.99.100
+/Users -maproot=root:wheel 10.201.70.10
 sudo nfsd restart
 
 From boot2docker umount/remount /Users using NFS:
@@ -27,7 +27,7 @@ with the contents:
 # --START--
 umount /Users
 /usr/local/etc/init.d/nfs-client start
-mount 192.168.99.1:/Users /Users -o rw,async,noatime,rsize=32768,wsize=32768,proto=tcp
+mount 10.201.70.1:/Users /Users -o rw,async,noatime,rsize=32768,wsize=32768,proto=tcp
 # --END--
 
 Edit the host-only network to reduce the dhcp address range to one address
@@ -161,12 +161,12 @@ ansible-playbook -i /tmp/run-in-hosts.$$ --extra-vars "$JSON_STRING" digitalreba
 
 # DHCP WARNING (if needed)
 if [[ $CON_VAR =~ dr_services(.*)--dhcp ]]; then
-    if [[ $IP =~ ^192.168.99. ]]; then
-        echo "Please verify, DHCP default Range (192.168.99.21-80) matches $IP range"
+    if [[ $IP =~ ^10.201.70. ]]; then
+        echo "Please verify, DHCP default Range (10.201.70.21-80) matches $IP range"
     else
         echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
         echo "!!! CONFIGURATION WARNING"
-        echo "!!! Admin-Default DHCP range (192.168.99.21-80) does not match Admin subnet in $IP"
+        echo "!!! Admin-Default DHCP range (10.201.70.21-80) does not match Admin subnet in $IP"
         echo "!!! You will have to add site-specific DHCP range for Provisioning"
         echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     fi

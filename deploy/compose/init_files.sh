@@ -28,8 +28,8 @@ function usage {
     echo "  --node # Adds the node component"
     echo "  --tag <TAG> # Uses that tag for builds and trees. default: latest"
     echo
-    echo "  --external_ip <CIDR Address, default: 192.168.124.11/24> "
-    echo "  --forwarder_ip <CIDR Address, default: 192.168.124.11/24> "
+    echo "  --external_ip <CIDR Address, default: 10.201.70.11/24> "
+    echo "  --forwarder_ip <CIDR Address, default: 10.201.70.11/24> "
     echo "       forwarder_ip is ignored if HOST access mode is used."
     echo
     echo " If additional arguments are provided, they are passed to docker-compose"
@@ -183,8 +183,8 @@ while [[ $1 == -* ]] ; do
 done
 
 if [ "$ACCESS_MODE" == "FORWARDER" ] ; then
-    EXTERNAL_IP=${EXTERNAL_IP:-192.168.124.11/24}
-    FORWARDER_IP=${FORWARDER_IP:-192.168.124.11/24}
+    EXTERNAL_IP=${EXTERNAL_IP:-10.201.70.11/24}
+    FORWARDER_IP=${FORWARDER_IP:-10.201.70.11/24}
     ACCESS_MODE_SED_DELETE="HOST"
     MYPWD=`pwd`
     cd config-dir/api/config/networks
@@ -196,7 +196,7 @@ if [ "$ACCESS_MODE" == "FORWARDER" ] ; then
     fi
     cd $MYPWD
 elif [ "$ACCESS_MODE" == "HOST" ] ; then
-    EXTERNAL_IP=${EXTERNAL_IP:-192.168.99.100/24}
+    EXTERNAL_IP=${EXTERNAL_IP:-10.201.70.12/24}
     FORWARDER_IP=
     ACCESS_MODE_SED_DELETE="FORWARDER"
     MYPWD=`pwd`

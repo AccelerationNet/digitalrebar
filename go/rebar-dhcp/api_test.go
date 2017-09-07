@@ -97,7 +97,7 @@ func TestCreateSubnetBadConvert(t *testing.T) {
 
 	recorder := httptest.NewRecorder()
 	url := baseUrl("/subnets")
-	req, err := http.NewRequest("POST", url, strings.NewReader("{ \"name\": \"ffeedd\", \"subnet\": \"192k.168.124.0/24\", \"active_start\": \"192.168.124.10\", \"active_end\": \"192.168.124.100\"}"))
+	req, err := http.NewRequest("POST", url, strings.NewReader("{ \"name\": \"ffeedd\", \"subnet\": \"192k.168.124.0/24\", \"active_start\": \"10.201.70.10\", \"active_end\": \"10.201.70.100\"}"))
 	assert.Nil(t, err)
 	req.SetBasicAuth("fred", "rules")
 	req.Header.Add("Content-Type", "application/json")
@@ -183,7 +183,7 @@ func TestUpdateSubnetBadConvert(t *testing.T) {
 
 	recorder := httptest.NewRecorder()
 	url := baseUrl("/subnets/jeb")
-	req, err := http.NewRequest("PUT", url, strings.NewReader("{ \"name\": \"ffeedd\", \"subnet\": \"192k.168.124.0/24\", \"active_start\": \"192.168.124.10\", \"active_end\": \"192.168.124.100\"}"))
+	req, err := http.NewRequest("PUT", url, strings.NewReader("{ \"name\": \"ffeedd\", \"subnet\": \"192k.168.124.0/24\", \"active_start\": \"10.201.70.10\", \"active_end\": \"10.201.70.100\"}"))
 	assert.Nil(t, err)
 	req.SetBasicAuth("fred", "rules")
 	req.Header.Add("Content-Type", "application/json")
@@ -225,7 +225,7 @@ func TestUpdateSubnetMissing(t *testing.T) {
 
 	recorder := httptest.NewRecorder()
 	url := baseUrl("/subnets/jeb")
-	req, err := http.NewRequest("PUT", url, strings.NewReader("{ \"name\": \"ffeedd\", \"subnet\": \"192.168.124.0/24\", \"active_start\": \"192.168.124.10\", \"active_end\": \"192.168.124.100\"}"))
+	req, err := http.NewRequest("PUT", url, strings.NewReader("{ \"name\": \"ffeedd\", \"subnet\": \"10.201.70.0/24\", \"active_start\": \"10.201.70.10\", \"active_end\": \"10.201.70.100\"}"))
 	assert.Nil(t, err)
 	req.SetBasicAuth("fred", "rules")
 	req.Header.Add("Content-Type", "application/json")

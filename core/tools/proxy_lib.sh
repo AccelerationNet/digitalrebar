@@ -54,6 +54,7 @@ mangle_proxies() {
     wanted_no_proxy['::1']=true
     wanted_no_proxy['172.16.0.0/12']=true
     wanted_no_proxy['192.168.0.0/16']=true
+    wanted_no_proxy['10.201.70.0/24']=true
     wanted_no_proxy['127.0.0.1']=true
     if [[ $no_proxy ]]; then
         local -a no_proxy_parts no_proxy_part

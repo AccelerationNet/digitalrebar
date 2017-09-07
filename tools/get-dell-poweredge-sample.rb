@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 $username = 'root'
-$password = 'calvin'
-$endpoint = "https://192.168.0.1/wsman"
+$password = 'DRACulaLives'
+$endpoint = "https://10.201.70.216/wsman"
 
 require "rexml/document"
 require "optparse"
@@ -55,9 +55,9 @@ end.parse!
 res = {}
 
 elems = [
- enumerate("http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSEnumeration"),
- enumerate("http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSString"),
- enumerate("http://schemas.dell.com/wbem/wscim/1/cim-schema/2/DCIM_BIOSInteger")]
+ enumerate("http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_BIOSEnumeration"),
+ enumerate("http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_BIOSString"),
+ enumerate("http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_BIOSInteger")]
 elems.each do |e|
   e.elements.each('/s:Envelope/s:Body/wsen:EnumerateResponse/wsman:Items/*') do |elem|
     res[elem.text("n1:AttributeName")] = elem.text("n1:CurrentValue")
